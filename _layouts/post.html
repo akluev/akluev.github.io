@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <p class="eyebrow">{{ page.date | date: "%B %-d, %Y" }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description %}
+      <p class="lede">{{ page.description | escape }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <p class="back-link"><a href="{{ '/blog/' | relative_url }}">&larr; All posts</a></p>
+</article>

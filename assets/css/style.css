@@ -1,0 +1,237 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fbfbfa;
+  --surface: #f1f2ef;
+  --text: #20231f;
+  --muted: #666c63;
+  --line: #dfe1dc;
+  --accent: #276749;
+  --accent-strong: #174b34;
+  --content: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+a:hover { color: var(--accent-strong); }
+
+.container {
+  width: min(calc(100% - 2.5rem), var(--content));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  background: var(--text);
+  color: var(--bg);
+}
+
+.site-header { border-bottom: 1px solid var(--line); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.5rem;
+  gap: 1.5rem;
+}
+
+.site-title {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+nav { display: flex; gap: 1.25rem; }
+
+nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a.active { color: var(--text); }
+
+main { min-height: calc(100vh - 11rem); }
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.7rem;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+h1 { font-size: clamp(2.35rem, 8vw, 4.15rem); }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1.25rem; }
+
+.eyebrow {
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lede {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.18rem;
+}
+
+.hero { padding: clamp(5rem, 12vw, 8rem) 0; }
+.hero .lede { margin-top: 1.5rem; }
+.hero-actions { margin-top: 2rem; }
+
+.button {
+  display: inline-block;
+  margin-right: 1.25rem;
+  padding: 0.65rem 1rem;
+  border-radius: 0.3rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--accent-strong);
+  color: white;
+}
+
+.text-link { white-space: nowrap; }
+
+.latest-posts {
+  padding: 3rem 0 5rem;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-list li {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.post-list time {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.post-list h2,
+.post-list h3 { margin-top: 0.25rem; }
+
+.post-list a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.post-list a:hover { color: var(--accent); }
+.post-list p { margin: 0; color: var(--muted); }
+
+.page,
+.post { padding: clamp(4rem, 10vw, 6.5rem) 0; }
+
+.page > p:not(.eyebrow),
+.page > .lede { max-width: 40rem; }
+
+.blog-index .lede { margin-bottom: 3rem; }
+.post-list-full h2 { font-size: 1.35rem; }
+
+.post-header {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-header h1 { font-size: clamp(2.2rem, 7vw, 3.5rem); }
+
+.post-content {
+  padding: 2.5rem 0 1rem;
+}
+
+.post-content h2 { margin-top: 2.5rem; }
+.post-content h3 { margin-top: 2rem; }
+
+.post-content code {
+  padding: 0.12rem 0.3rem;
+  border-radius: 0.2rem;
+  background: var(--surface);
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: var(--surface);
+}
+
+.post-content pre code { padding: 0; }
+.back-link { margin-top: 2rem; }
+
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.site-footer p { margin: 0; }
+
+@media (max-width: 520px) {
+  html { font-size: 16px; }
+  .header-inner { align-items: flex-start; flex-direction: column; padding: 1rem 0; gap: 0.5rem; }
+  .hero { padding-top: 4rem; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151815;
+    --surface: #20251f;
+    --text: #edf0ea;
+    --muted: #a6ada3;
+    --line: #343a33;
+    --accent: #78c99b;
+    --accent-strong: #a4ddb9;
+  }
+}

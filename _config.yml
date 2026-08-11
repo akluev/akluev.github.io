@@ -1,0 +1,21 @@
+title: Alexander Kluev
+description: Notes on Oracle, APEX, SQL, PL/SQL, and practical software development.
+url: https://akluev.github.io
+baseurl: ""
+lang: en
+
+author:
+  name: Alexander Kluev
+
+permalink: /blog/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - tmp
