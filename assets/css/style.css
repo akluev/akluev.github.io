@@ -174,6 +174,76 @@ p { margin: 0 0 1.25rem; }
 .page > p:not(.eyebrow),
 .page > .lede { max-width: 40rem; }
 
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 13rem;
+  align-items: center;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.about-intro h1 { font-size: clamp(2.35rem, 7vw, 3.65rem); }
+
+.about-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 0.4rem;
+  object-fit: cover;
+}
+
+.about-copy { max-width: 42rem; }
+
+.about-section {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.about-section > p:not(.eyebrow) { max-width: 42rem; }
+
+.speaking-gallery {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.speaking-gallery figure { margin: 0; }
+
+.speaking-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+.speaking-gallery figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.about-archive {
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+}
+
+.about-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .blog-index .lede { margin-bottom: 3rem; }
 .post-list-full h2 { font-size: 1.35rem; }
 
@@ -229,6 +299,9 @@ p { margin: 0 0 1.25rem; }
   html { font-size: 16px; }
   .header-inner { align-items: flex-start; flex-direction: column; padding: 1rem 0; gap: 0.5rem; }
   .hero { padding-top: 4rem; }
+  .about-intro { grid-template-columns: 1fr; }
+  .about-portrait { width: min(70%, 15rem); grid-row: 1; }
+  .speaking-gallery { grid-template-columns: 1fr; }
 }
 
 @media (prefers-color-scheme: dark) {
