@@ -207,6 +207,13 @@ p { margin: 0 0 1.25rem; }
 }
 
 .post-content pre code { padding: 0; }
+
+.post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .back-link { margin-top: 2rem; }
 
 .site-footer {
