@@ -18,6 +18,8 @@ description: About Alexander Kluev, a senior Oracle APEX developer with 30 years
   <div class="about-copy">
     <p>I began working with Oracle in 1996, after starting my software development career in 1993. My work spans Oracle APEX, SQL, PL/SQL, SQLcl, database design, and deployment automation. Today I work as a Senior APEX Developer at <a href="https://www.talan.com/americas/en" target="_blank" rel="noopener noreferrer">Talan</a>.</p>
 
+    <p>I was born and raised in Ukraine&mdash;in the previous millennium&mdash;and have lived in Canada since the beginning of this one. I am proudly Ukrainian Canadian, at home in both parts of that identity. <span class="nationality-flags"><img src="{{ '/assets/images/flags/ukraine.svg' | relative_url }}" alt="Flag of Ukraine" width="30" height="20"><img src="{{ '/assets/images/flags/canada.svg' | relative_url }}" alt="Flag of Canada" width="40" height="20"></span></p>
+
     <p>Before joining Talan, I worked on enterprise systems in the public and private sectors, including major applications for the Government of Ontario. I later worked at Oracle on active Oracle Health projects and, toward the end of my time there, as a member of the Oracle APEX development team. That combination of customer implementation and product-development experience continues to shape how I approach software: practical, maintainable, and grounded in how systems behave in production.</p>
   </div>
 

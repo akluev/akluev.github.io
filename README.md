@@ -1,12 +1,16 @@
-# Alexander Kluev
+# Alex on APEX
 
-Personal technical blog for Alexander Kluev, built with Jekyll and hosted on
+Personal technical blog by Alexander Kluev, built with Jekyll and hosted on
 GitHub Pages.
 
 ## Publishing
 
 GitHub Pages publishes this repository directly from the `master` branch root.
 No separate build step or frontend toolchain is required.
+
+Original branding and other design source files are kept in `source-assets/`.
+Jekyll excludes that directory from the published site; optimized web assets belong
+under `assets/`.
 
 ## Local development
 

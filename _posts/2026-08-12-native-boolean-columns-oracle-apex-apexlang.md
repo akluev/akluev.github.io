@@ -160,4 +160,6 @@ The most important practical lessons are:
 
 Once these rules are applied consistently, the fixes are mechanical and can be reused across APEX applications that adopt native Oracle Database Boolean columns.
 
-This article was adapted from the realSQLclProject documentation. <a href="https://github.com/akluev/realSQLclProject/blob/main/docs/APEXlang/15.-Native-Boolean-Columns-in-Oracle-APEX-26.1-and-APEXlang.md" target="_blank" rel="noopener noreferrer">Read the original document on GitHub</a>.
+## References
+
+- <a href="https://github.com/akluev/realSQLclProject/blob/main/docs/APEXlang/15.-Native-Boolean-Columns-in-Oracle-APEX-26.1-and-APEXlang.md" target="_blank" rel="noopener noreferrer">Original realSQLclProject document: Native Boolean Columns in Oracle APEX 26.1 and APEXlang</a>
