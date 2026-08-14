@@ -5,6 +5,12 @@ baseurl: ""
 lang: en
 future: true
 
+plugins:
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
 author:
   name: Alexander Kluev
 

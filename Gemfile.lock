@@ -281,6 +281,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-feed (~> 0.17)
   webrick (~> 1.8)
 
 CHECKSUMS
