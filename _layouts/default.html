@@ -24,6 +24,7 @@
           <a{% if page.url == '/' %} class="active" aria-current="page"{% endif %} href="{{ '/' | relative_url }}">Home</a>
           <a{% if page.url == '/about/' %} class="active" aria-current="page"{% endif %} href="{{ '/about/' | relative_url }}">About</a>
           <a{% if page.url == '/blog/' or page.layout == 'post' %} class="active" aria-current="page"{% endif %} href="{{ '/blog/' | relative_url }}">Blog</a>
+          <a{% if page.url == '/contact/' %} class="active" aria-current="page"{% endif %} href="{{ '/contact/' | relative_url }}">Contact</a>
         </nav>
       </div>
     </header>
@@ -34,7 +35,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; {{ site.time | date: '%Y' }} Alexander Kluev. &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS / Atom</a></p>
+        <p>&copy; {{ site.time | date: '%Y' }} Alexander Kluev. &middot; <a href="mailto:alex@alexonapex.com">Contact</a> &middot; <a href="https://github.com/akluev/akluev.github.io/discussions" target="_blank" rel="noopener noreferrer">Discussions</a> &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS / Atom</a></p>
       </div>
     </footer>
   </body>
