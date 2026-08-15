@@ -47,7 +47,24 @@ Then confirm that the aliases are available:
 alias list
 ```
 
-<!-- OUTPUT NEEDED 1: Paste a real `alias list` result showing all current `prj_` aliases. A text code block is preferable to a screenshot because readers may want to copy the names. -->
+The command transcripts in this article retain their original environment and object names. Repetitive sections are explicitly marked as skipped, and database connection details are redacted.
+
+```text
+SQL> alias list
+lbs
+prj_compile
+prj_drift_cleanup
+prj_exp_app
+prj_force_apex
+prj_install
+prj_mr
+prj_rm_logs
+prj_rm_ords
+prj_status
+prj_sync
+prj_validate
+SQL>
+```
 
 The aliases fall naturally into three groups:
 
@@ -94,7 +111,28 @@ The resulting directory contains both things the workflow needs:
 
 On other detected SQLcl versions, the alias keeps the Project export and validates the resulting APEXlang application instead of applying the 26.1.2 re-export workaround.
 
-<!-- OUTPUT NEEDED 2: Paste one complete `prj_exp_app <app_id>` session, ideally showing both the Project export and the subsequent APEXlang re-export or validation. Replace private host names, usernames, and application names if necessary. -->
+```text
+SQL> conn -n proj_dev
+Connected.
+SQL> prj_exp_app 100
+
+APP_ID
+--------------------------------
+100
+
+Exporting APEX Application ID 100..
+*** APEX_APPLICATIONS ***
+Exporting Workspace DEMO1 - application 100:DEMO_APP
+-------------------------------
+APEX_APPLICATION              1
+-------------------------------
+Exported 1 objects
+Elapsed 46 sec
+
+Bug in 26.1 -Rexported application 100 to src/database/cla_apex/apex_apps/f100
+Exporting Workspace DEMO1 - application 100:DEMO_APP
+File src\database\cla_apex\apex_apps\f100\demo_app\application.apx created
+```
 
 This is deliberately a version-aware workaround, not a claim that every SQLcl release behaves the same way. Review the alias before using it with a newer release and remove the workaround when it is no longer necessary. The binary-export problem and stale-directory behavior are documented in the Oracle Forum reports listed in the References section.
 
@@ -112,7 +150,28 @@ The alias runs `git restore` against `dist/releases/ords` in both the working tr
 
 This safeguard matters: `prj_rm_ords` discards the staged and unstaged ORDS differences in that path. Always inspect the diff first. If the export contains a real ORDS change, do not run the alias.
 
-<!-- OUTPUT NEEDED 3: A compact before-and-after example works well here: `git status --short` before `prj_rm_ords`, the alias output, and `git status --short` afterward. -->
+```text
+SQL> project stage
+
+Stage is Comparing:
+Old Branch      refs/heads/main
+New Branch      refs/heads/demo1
+
+Stage processing completed, please review and commit your changes to repository
+
+SQL> ! git status --short
+ M dist/releases/next/changes/demo1/stage.changelog.xml
+ M dist/releases/ords/cla_apex/ords.sql
+ M dist/releases/ords/cla_public/ords.sql
+
+SQL> prj_rm_ords
+Removing fake changes in ORDS schema...
+
+SQL> ! git status --short
+ M dist/releases/next/changes/demo1/stage.changelog.xml
+
+SQL>
+```
 
 The collection also includes `prj_drift_cleanup`, which runs the repository's broader drift-cleanup script to remove ORDS noise, whitespace differences, and other export artifacts during drift analysis.
 
@@ -133,7 +192,83 @@ prj_install
 
 It changes into the `dist` directory, runs `@install.sql`, and returns to the repository root. The alias captures the ordinary non-production path without pretending that it replaces artifact-based release management.
 
-<!-- OUTPUT NEEDED 4: Paste a successful but reasonably short `prj_install` result. Include the changeset summary and final success message; omit repetitive object-by-object output if the session is very long. -->
+```text
+SQL> prj_install
+Running Project Installer Script...
+Installing/updating schemas
+--Starting Liquibase at 2026-08-14T22:56:58.946607500 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+Running Changeset: releases\apex\f106\f106.xml::INSTALL_106::SQLCL-Generated
+--application/set_environment
+API Last Extended:20260330
+Your Current Version:20260330
+This import is compatible with version: 20260330
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 23175081927095270
+New ID offset for application: 0
+
+APPLICATION 106 - EMP & DEPT Mini Hub
+[APEX application component output skipped]
+--application/end_environment
+... elapsed: 5.07 sec
+
+...done
+Running Changeset: releases\apex\f120\f120.xml::INSTALL_120::SQLCL-Generated
+--application/set_environment
+API Last Extended:20260330
+Your Current Version:20260330
+This import is compatible with version: 20260330
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 23178133412095845
+New ID offset for application: 0
+
+APPLICATION 120 - Working Copy Test
+[APEX application component output skipped]
+--application/end_environment
+... elapsed: 1.44 sec
+
+...done
+
+UPDATE SUMMARY
+Run:                          2
+Previously run:              35
+Filtered out:                 0
+-------------------------------
+Total change sets:           37
+
+Liquibase: Update has been successful. Rows affected: 0
+
+Produced logfile: sqlcl-lb-1786762618943.log
+
+Operation completed successfully.
+
+Invalid object counts (INVALID status only):
+
+Compiling invalid objects...
+
+Compiling DEMO1 ...Done!
+
+Invalid object counts after recompilation (INVALID status + synonyms with missing targets):
+
+OWNER                OBJECT_TYPE             OBJECT_COUNT INVALID_COUNT
+-------------------- ----------------------- ------------ -------------
+DEMO1                INDEX                              6
+DEMO1                LOB                                1
+DEMO1                SEQUENCE                           2
+DEMO1                TABLE                              4
+
+Invalid objects:
+
+0 rows selected.
+
+Compilation errors:
+
+0 rows selected.
+
+Other compilation errors not listed
+-----------------------------------
+                                  0
+SQL>
+```
 
 ### `prj_status`: preview the next installation
 
@@ -154,7 +289,22 @@ I think of this as an installation dry run. It shows the pending changesets that
 
 `prj_status` does not prove that an installation will succeed, but it is a valuable last check before changing an environment.
 
-<!-- OUTPUT NEEDED 5: Paste `prj_status` output from an environment with two or three pending changesets. This will make the “dry run” idea immediately concrete. -->
+```text
+SQL> prj_status
+Running the Liquibase Status Command to show pending changesets...
+--Starting Liquibase at 2026-08-14T22:30:38.284170600 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+17 changesets have not been applied to CLA_DEPLOYER@[connection details redacted]
+     aop_upgrade_25.2\_custom\aop_install.xml::SqlCl:1769116579255.1.1::SQLCL-Generated
+     tacrep-11/cla_apex/package_specs/erp_emergency_event_util.sql::1784667704068::CLA_APEX
+     tacrep-11/cla_apex/tables/erp_app_substitution.sql::1784667702170::CLA_APEX
+     [12 additional changesets skipped]
+     releases\apex\f1968\f1968.xml::INSTALL_1968::SQLCL-Generated
+     _custom/custom_prompt.sql::1786760223440::SqlCl
+
+Operation completed successfully.
+
+SQL>
+```
 
 ### `prj_sync`: record a baseline without executing changes
 
@@ -176,7 +326,34 @@ The important word is **sync**: this marks all pending changesets as executed wi
 
 Because it changes deployment history, `prj_sync` should never be a reflexive response to an unexpected status. First confirm the target connection and prove that the database already has the intended state.
 
-<!-- OUTPUT NEEDED 6: Paste `prj_status`, then `prj_sync`, then a second `prj_status` from a disposable demonstration environment. This is the clearest way to show that the changesets were recorded rather than executed. -->
+```text
+SQL> prj_status
+Running the Liquibase Status Command to show pending changesets...
+--Starting Liquibase at 2026-08-14T22:37:34.495236100 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+16 changesets have not been applied to CLA_DEPLOYER@[connection details redacted]
+     tacrep-11/cla_apex/package_specs/erp_emergency_event_util.sql::1784667704068::CLA_APEX
+     tacrep-11/cla_apex/tables/erp_app_substitution.sql::1784667702170::CLA_APEX
+     [12 additional changesets skipped]
+     releases\apex\f1968\f1968.xml::INSTALL_1968::SQLCL-Generated
+     _custom/custom_prompt.sql::1786760223440::SqlCl
+
+Operation completed successfully.
+
+SQL> prj_sync
+Running the Liquibase changelog-sync Command to mark all changesets as executed...
+--Starting Liquibase at 2026-08-14T23:00:58.798761600 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+
+Operation completed successfully.
+
+SQL> prj_status
+Running the Liquibase Status Command to show pending changesets...
+--Starting Liquibase at 2026-08-14T23:01:56.104367100 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+CLA_DEPLOYER@[connection details redacted] is up to date
+
+Operation completed successfully.
+
+SQL>
+```
 
 ### `prj_mr`: skip one already-satisfied changeset
 
@@ -198,7 +375,42 @@ Despite the name, it does not execute the changeset. It marks only the next pend
 
 This is a troubleshooting operation, not a way to suppress inconvenient errors. Before using it, inspect the next changeset and confirm that the target database already implements the same result.
 
-<!-- OUTPUT NEEDED 7: Paste a concise failed-install example, the `prj_mr` result, and the relevant part of the successful rerun. Redact environment details. -->
+The before-and-after status below makes the effect explicit. The AOP upgrade is the next pending changeset before `prj_mr`; afterward, the pending count falls from 17 to 16 and that first changeset no longer appears.
+
+```text
+SQL> prj_status
+Running the Liquibase Status Command to show pending changesets...
+--Starting Liquibase at 2026-08-14T22:30:38.284170600 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+17 changesets have not been applied to CLA_DEPLOYER@[connection details redacted]
+     aop_upgrade_25.2\_custom\aop_install.xml::SqlCl:1769116579255.1.1::SQLCL-Generated
+     tacrep-11/cla_apex/package_specs/erp_emergency_event_util.sql::1784667704068::CLA_APEX
+     tacrep-11/cla_apex/tables/erp_app_substitution.sql::1784667702170::CLA_APEX
+     [12 additional changesets skipped]
+     releases\apex\f1968\f1968.xml::INSTALL_1968::SQLCL-Generated
+     _custom/custom_prompt.sql::1786760223440::SqlCl
+
+Operation completed successfully.
+
+SQL> prj_mr
+Running the Liquibase mark-next-changeset-ran Command to mark the next changeset as executed...
+--Starting Liquibase at 2026-08-14T22:37:18.078485100 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+
+Operation completed successfully.
+
+SQL> prj_status
+Running the Liquibase Status Command to show pending changesets...
+--Starting Liquibase at 2026-08-14T22:37:34.495236100 using Java 17.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+16 changesets have not been applied to CLA_DEPLOYER@[connection details redacted]
+     tacrep-11/cla_apex/package_specs/erp_emergency_event_util.sql::1784667704068::CLA_APEX
+     tacrep-11/cla_apex/tables/erp_app_substitution.sql::1784667702170::CLA_APEX
+     [12 additional changesets skipped]
+     releases\apex\f1968\f1968.xml::INSTALL_1968::SQLCL-Generated
+     _custom/custom_prompt.sql::1786760223440::SqlCl
+
+Operation completed successfully.
+
+SQL>
+```
 
 ### Small helpers that remove repeated work
 
@@ -206,6 +418,22 @@ Two additional aliases are useful when maintaining the repository:
 
 - `prj_force_apex` removes the SQLcl-generated APEX deployment records from Liquibase metadata so that the applications can be redeployed by the next `prj_install`. It prompts before making the change. Use it only after confirming the connection and understanding why SQLcl Project's recorded state is wrong.
 - `prj_rm_logs` removes `*.log` files throughout the repository. It is convenient when Liquibase leaves logs in generated directories, but review the repository first in case a log is intentionally retained.
+
+A before-and-after check makes the log cleanup visible:
+
+```text
+SQL> ! find . -name "*.log"
+./dist/sqlcl-lb-1776898824169.log
+./dist/sqlcl-lb-1776900353388.log
+[additional log files skipped]
+./dist/sqlcl-lb-error1780358656681.log
+
+SQL> prj_rm_logs
+Removing Logs from the repo...
+
+SQL> ! find . -name "*.log"
+SQL>
+```
 
 After `prj_force_apex`, either run `prj_install` to redeploy the applications or `prj_sync` to record them as current without redeploying.
 
@@ -230,26 +458,86 @@ prj_compile 110
 
 `prj_validate` resolves the APEXlang directory and workspace from `apex_applications`, then runs `apex validate`. `prj_compile` resolves the same values and runs `apex import`.
 
-<!-- OUTPUT NEEDED 8: Paste a successful `prj_validate <app_id>` result followed by `prj_compile <app_id>`. A second, short validation-error example would also be useful if it does not distract from the main workflow. -->
+```text
+SQL> conn -n proj_vm26
+Connected.
+
+SQL> prj_validate 120
+Validating APEXlang app 120 from src/database/demo1/apex_apps/f120/working-copy-test -ws DEMO1 ...
+Validation successful.
+
+SQL>
+```
+
+```text
+SQL> conn -n proj_vm26
+Connected.
+SQL> prj_compile 120
+Compiling APEXlang app 120 from src/database/demo1/apex_apps/f120/working-copy-test -ws DEMO1 ...
+Importing application ID: 120 into workspace: DEMO1
+Import successful.
+
+SQL>
+```
 
 These aliases are particularly effective with coding agents. A skill can instruct the agent to validate after an edit, correct any reported APEXlang error, and import only after validation succeeds. The agent operates through two stable commands, while the aliases keep workspace names and repository paths out of its prompt.
 
 ## A compact working routine
 
-For a normal change destined for a developer-controlled environment, the core routine becomes:
+For a normal change destined for a developer-controlled environment, the core routine becomes the following. The commented blocks show exceptional paths and should be used only when their stated conditions apply.
 
 ```sql
+-- Connect to the development environment.
 conn -name proj_dev
 prj_exp_app 110
 
--- Edit and review the repository files.
+-- Edit and review the APEXlang source files.
 
 prj_validate 110
 prj_compile 110
 
+-- Edit Oracle Database objects and apply the changes to the development database.
+
+project export -o TABLE1
+
+-- Commit the exported source before staging.
+! git add .
+! git commit -m "ready to stage"
+
+-- Stage the changes and remove false ORDS changes.
+project stage
+prj_rm_ords
+
+-- Add custom DML after staging, then edit the generated changeset.
+project stage add-custom -file-name changes1.sql
+
+-- Deploy to the unit-test environment.
 conn -name proj_test
 prj_status
+
+/*
+-- Optional: force all APEX applications to be included in the next installation.
+prj_force_apex
+*/
+
 prj_install
+
+/*
+-- Troubleshooting only: if the installation failed because the next
+-- changeset is already satisfied, mark that one changeset and retry.
+prj_mr
+prj_install
+*/
+
+/*
+-- Baseline or drift alternative: after verifying that the environment
+-- already contains every pending change, use this instead of prj_install.
+prj_sync
+*/
+
+-- Clean up the logs after reviewing them.
+prj_rm_logs
+
 ```
 
 Git remains part of every step: inspect exports, review the diff, commit only intended files, and merge through the team's normal process. Aliases make important operations shorter; they do not replace source control discipline or deployment review.

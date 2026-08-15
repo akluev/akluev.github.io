@@ -14,5 +14,22 @@ layout: default
     {{ content }}
   </div>
 
+  {% assign discussion_url = "https://github.com/akluev/akluev.github.io/discussions" %}
+  {% assign discussion = site.data.discussions[page.path] %}
+  {% if discussion %}
+    {% assign discussion_url = discussion.url %}
+  {% endif %}
+  {% assign article_url = page.url | absolute_url %}
+  {% capture issue_title %}Correction or problem with article: {{ page.title }}{% endcapture %}
+  {% capture issue_body %}Article: {{ page.title }}
+URL: {{ article_url }}
+
+What should be corrected or fixed?{% endcapture %}
+
+  <aside class="post-feedback" aria-labelledby="post-feedback-heading">
+    <h2 id="post-feedback-heading">Questions or corrections?</h2>
+    <p><a href="{{ discussion_url }}" target="_blank" rel="noopener noreferrer">Discuss this post</a> <span aria-hidden="true">&middot;</span> <a href="https://github.com/akluev/akluev.github.io/issues/new?title={{ issue_title | strip | uri_escape }}&amp;body={{ issue_body | strip | uri_escape }}" target="_blank" rel="noopener noreferrer">Report an issue</a></p>
+  </aside>
+
   <p class="back-link"><a href="{{ '/blog/' | relative_url }}">&larr; All posts</a></p>
 </article>
