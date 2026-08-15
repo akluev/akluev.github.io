@@ -8,13 +8,17 @@ Two developers make different changes to the same Oracle APEX application. One b
 
 How do we combine them without losing either developer's work?
 
-I demonstrated one approach during an [APEX Instant Tips broadcast](https://youtu.be/uqgRy-S8k2k?list=PLCAYBJ7ynpQQQrdwKFBZu8Kx9VTFt-pRP). The technique uses three capabilities together:
+I demonstrated one approach during an APEX Instant Tips broadcast. The technique uses three capabilities together:
 
 - APEX working copies preserve and compare application state.
 - APEXlang makes conflicting page definitions editable as source.
 - SQLcl validates and imports the reconciled application.
 
 The result is a practical workflow for resolving application drift and merging parallel development, including cases where both developers changed the same page.
+
+<div class="video-embed">
+  <iframe width="1801" height="1013" src="https://www.youtube.com/embed/uqgRy-S8k2k?list=PLCAYBJ7ynpQQQrdwKFBZu8Kx9VTFt-pRP" title="APEX Instant Tips #204: Working copies" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## The demo application
 
@@ -169,14 +173,4 @@ When applying this workflow to a real application:
 
 That final export closes the loop. The repository should represent the same combined application that was tested in APEX.
 
-## Watch the demonstration
-
-The video shows the complete Blue and Yellow example, including both working-copy comparisons, the APEXlang reconciliation, and the selective merge.
-
-<a href="https://youtu.be/uqgRy-S8k2k?list=PLCAYBJ7ynpQQQrdwKFBZu8Kx9VTFt-pRP" target="_blank" rel="noopener noreferrer">Watch the APEX Instant Tips demonstration on YouTube &rarr;</a>
-
 APEX working copies, APEXlang, and SQLcl solve different parts of the problem. Used together, they provide a controlled way to resolve application drift and combine parallel development without reducing the decision to "keep my page" or "keep their page."
-
-## References
-
-- <a href="https://youtu.be/uqgRy-S8k2k?list=PLCAYBJ7ynpQQQrdwKFBZu8Kx9VTFt-pRP" target="_blank" rel="noopener noreferrer">APEX Instant Tips: working copies, APEXlang, and parallel development</a>
