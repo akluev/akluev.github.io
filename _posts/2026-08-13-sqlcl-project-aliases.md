@@ -484,20 +484,60 @@ These aliases are particularly effective with coding agents. A skill can instruc
 
 ## A compact working routine
 
-For a normal change destined for a developer-controlled environment, the core routine becomes:
+For a normal change destined for a developer-controlled environment, the core routine becomes the following. The commented blocks show exceptional paths and should be used only when their stated conditions apply.
 
 ```sql
+-- Connect to the development environment.
 conn -name proj_dev
 prj_exp_app 110
 
--- Edit and review the repository files.
+-- Edit and review the APEXlang source files.
 
 prj_validate 110
 prj_compile 110
 
+-- Edit Oracle Database objects and apply the changes to the development database.
+
+project export -o TABLE1
+
+-- Commit the exported source before staging.
+! git add .
+! git commit -m "ready to stage"
+
+-- Stage the changes and remove false ORDS changes.
+project stage
+prj_rm_ords
+
+-- Add custom DML after staging, then edit the generated changeset.
+project stage add-custom -file-name changes1.sql
+
+-- Deploy to the unit-test environment.
 conn -name proj_test
 prj_status
+
+/*
+-- Optional: force all APEX applications to be included in the next installation.
+prj_force_apex
+*/
+
 prj_install
+
+/*
+-- Troubleshooting only: if the installation failed because the next
+-- changeset is already satisfied, mark that one changeset and retry.
+prj_mr
+prj_install
+*/
+
+/*
+-- Baseline or drift alternative: after verifying that the environment
+-- already contains every pending change, use this instead of prj_install.
+prj_sync
+*/
+
+-- Clean up the logs after reviewing them.
+prj_rm_logs
+
 ```
 
 Git remains part of every step: inspect exports, review the diff, commit only intended files, and merge through the team's normal process. Aliases make important operations shorter; they do not replace source control discipline or deployment review.
