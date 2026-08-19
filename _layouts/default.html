@@ -19,7 +19,10 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="site-title" href="{{ '/' | relative_url }}">Alex on APEX</a>
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          <span>Alex on APEX</span>
+          <img class="site-title-flag" src="{{ '/assets/images/flags/ukraine.svg' | relative_url }}" alt="Ukrainian flag" width="24" height="12">
+        </a>
         <nav aria-label="Primary navigation">
           <a{% if page.url == '/' %} class="active" aria-current="page"{% endif %} href="{{ '/' | relative_url }}">Home</a>
           <a{% if page.url == '/about/' %} class="active" aria-current="page"{% endif %} href="{{ '/about/' | relative_url }}">About</a>
