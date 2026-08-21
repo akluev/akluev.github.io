@@ -55,7 +55,7 @@ project init -name subst
 
 Output should look something like this:
 
-```sql
+```text
 SQL> ! git init
 Initialized empty Git repository in C:/repo/tests/subst/.git/
 
@@ -98,7 +98,7 @@ project stage add-custom -file-name subst.sql
 
 Output should look something like this:
 
-```sql
+```text
 SQL> ! git checkout -b test1
 Switched to a new branch 'test1'
 
@@ -160,7 +160,7 @@ That is the connection between the file and the deployment. Any variable defined
 
 Connect to the schema and run `prj_install` — the alias from the <a href="/blog/2026/08/13/sqlcl-project-aliases/" target="_blank" rel="noopener noreferrer">SQLcl Project Aliases</a> post. If you are not familiar with it, run `alias details prj_install` to see exactly what it does:
 
-```sql
+```text
 SQL> alias details prj_install
 prj_install
 -----------
@@ -177,7 +177,7 @@ It changes into the `dist` folder, runs `install.sql`, then returns to the proje
 
 To run the first deployment:
 
-```shell
+```text
 SQL> conn -n demo_vm26
 Connected.
 SQL> prj_install
@@ -207,7 +207,7 @@ Four things stand out in this output.
 
 Set `TEST1` as an OS variable, exit SQLcl, and re-connect:
 
-```shell
+```text
 $ export TEST1="Test1 from OS"
 $ sql -nolog
 SQL> conn -n demo_vm26

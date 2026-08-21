@@ -344,7 +344,9 @@ p { margin: 0 0 1.25rem; }
   background: var(--surface);
 }
 
-.post-content pre code { padding: 0; }
+.post-content pre code { padding: 0; background: none; }
+
+.post-content .highlighter-rouge { position: relative; }
 
 .post-content img {
   display: block;
