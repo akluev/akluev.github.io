@@ -83,3 +83,15 @@ Wrap-up paragraphs.
 - Each section heading is `##`; subsections are `###`.
 - **Commands and their output**: when showing a command a reader should run, first show the command(s) with a brief lead-in (e.g. "From inside SQLcl, run:"), then follow with a second block introduced by "Output should look something like this:" containing the actual output. This lets readers verify what they see matches what is expected.
 - Do not start writing the full article body until the TL;DR and Sources skeleton have been approved by the user.
+
+## LinkedIn Post Tags
+
+When promoting a blog post on LinkedIn, include relevant hashtags at the end of the post. Common tags for technical content:
+
+- `#sqlcl` — for SQLcl-related articles
+- `#oracle` — for Oracle Database content
+- `#orclapex` — for Oracle APEX articles
+- `#liquibase` — for deployment/database migration topics
+- `#git` — for version control content
+
+Always include the direct blog post URL in the body of the message, with Dan McGhan's relevant work (e.g. schema-agnostic changesets) called out by name to help bridge knowledge gaps and give credit.

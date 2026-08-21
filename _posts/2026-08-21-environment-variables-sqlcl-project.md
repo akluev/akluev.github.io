@@ -258,7 +258,7 @@ declare
     q'`${APP_PASSWORD_CHANGED}`',
     -- host ACLs
     q'`${IDCS_HOST}`',
-    q'`${EGRESS_HOST}`',
+    q'`${OAC_HOST}`',
     -- OCI config
     q'`${OCI_VAULT_VALUE}`',
     q'`${OCI_REGION_VALUE}`',
