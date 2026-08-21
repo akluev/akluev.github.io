@@ -2,6 +2,11 @@
 title: "SQLcl Project Aliases: A Practical Toolkit for Daily Development"
 date: 2026-08-13
 description: A practical collection of SQLcl aliases for safer SQLcl Project exports, deployments, Liquibase operations, and APEXlang development.
+tags:
+  - sqlcl
+  - sqlcl-projects
+  - oracle-apex
+  - apexlang
 ---
 
 Working professionally with SQLcl Project requires more than learning the `project` command. The day-to-day workflow sits at the intersection of three tools:

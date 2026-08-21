@@ -2,6 +2,11 @@
 title: "Merging APEX Working Copies with APEXlang"
 date: 2026-07-24
 description: A practical workflow for combining parallel Oracle APEX development by using working copies, APEXlang, and SQLcl together.
+tags:
+  - oracle-apex
+  - apexlang
+  - sqlcl
+  - git
 ---
 
 Two developers make different changes to the same Oracle APEX application. One branch is merged into the repository, but another version of the application is still active in the APEX workspace. Both streams contain valuable work, and some of the changes affect the same page.

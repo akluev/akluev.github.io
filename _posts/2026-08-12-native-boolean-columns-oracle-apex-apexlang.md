@@ -2,6 +2,11 @@
 title: "Native Boolean Columns in Oracle APEX 26.1 and APEXlang"
 date: 2026-08-12
 description: How to keep native Oracle Boolean values correctly typed through APEX sources, session state, controls, and APEXlang validation.
+tags:
+  - oracle-apex
+  - apexlang
+  - sqlcl
+  - oracle-database
 ---
 
 Oracle Database native `BOOLEAN` columns remove the need for older `VARCHAR2(1)` or `NUMBER(1)` conventions. In APEX, these columns are naturally exposed as checkboxes, switches, hidden items, or editable Interactive Grid columns.
