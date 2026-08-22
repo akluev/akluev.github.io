@@ -4,7 +4,7 @@ date: 2026-08-13
 description: A practical collection of SQLcl aliases for safer SQLcl Project exports, deployments, Liquibase operations, and APEXlang development.
 tags:
   - sqlcl
-  - sqlcl-projects
+  - sqlcl-project
   - oracle-apex
   - apexlang
 ---

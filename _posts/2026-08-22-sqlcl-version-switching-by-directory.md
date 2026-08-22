@@ -4,7 +4,7 @@ date: 2026-08-22
 description: A PROMPT_COMMAND hook in ~/.bashrc that switches the SQLcl version on your PATH automatically whenever you change directory — useful during upgrades and when working across projects on different SQLcl releases.
 tags:
   - sqlcl
-  - sqlcl-projects
+  - sqlcl-project
   - git
   - bash
 ---

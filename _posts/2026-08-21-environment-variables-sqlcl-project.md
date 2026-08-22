@@ -1,15 +1,15 @@
 ---
-title: "Substitution Variables in SQLcl Projects: An Underused Liquibase Feature"
+title: "Substitution Variables in SQLcl Project: An Underused Liquibase Feature"
 date: 2026-08-21
-description: Liquibase property substitution lets you inject values from a properties file or OS environment variables into any changeset. Available since the first SQLcl Projects release (24.3 onward) but absent from the official docs — which explains why it is so often overlooked.
+description: Liquibase property substitution lets you inject values from a properties file or OS environment variables into any changeset. Available since the first SQLcl Project release (24.3 onward) but absent from the official docs — which explains why it is so often overlooked.
 tags:
   - sqlcl
-  - sqlcl-projects
+  - sqlcl-project
   - liquibase
   - oracle-database
 ---
 
-Substitution variables are a long-standing Liquibase feature that SQLcl Projects inherit out of the box — yet they are absent from the official SQLcl Project documentation, which goes a long way to explaining why community forums regularly see questions about customising deployments per environment, enhancement requests for features that already exist, and developers who simply do not know this capability is there. The feature has been available since the first SQLcl Projects release (24.3 onward). SQLcl 26.1 put it in the spotlight with schema-agnostic deployments, but that is only one application of a much more broadly useful tool.
+Substitution variables are a long-standing Liquibase feature that SQLcl Project inherits out of the box — yet they are absent from the official SQLcl Project documentation, which goes a long way to explaining why community forums regularly see questions about customising deployments per environment, enhancement requests for features that already exist, and developers who simply do not know this capability is there. The feature has been available since the first SQLcl Project release (24.3 onward). SQLcl 26.1 put it in the spotlight with schema-agnostic deployments, but that is only one application of a much more broadly useful tool.
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -29,10 +29,10 @@ Substitution variables are a long-standing Liquibase feature that SQLcl Projects
 
 ## TL;DR
 
-- Liquibase has supported `${VAR_NAME}` substitution tokens in changeset SQL for years; SQLcl Projects inherit this feature without any additional configuration.
-- The feature is absent from the official SQLcl Project documentation — which explains why it regularly surfaces as forum questions and why many developers working with SQLcl Projects do not know it is there.
+- Liquibase has supported `${VAR_NAME}` substitution tokens in changeset SQL for years; SQLcl Project inherits this feature without any additional configuration.
+- The feature is absent from the official SQLcl Project documentation — which explains why it regularly surfaces as forum questions and why many developers working with SQLcl Project do not know it is there.
 - Values are resolved from two sources: a properties file passed to Liquibase at deploy time, or OS-level environment variables set on the deploying machine — both work independently and can be combined.
-- Dan McGhan's excellent post on `stage.substituteSchemas` explains how SQLcl 26.1 leverages this mechanism for schema-agnostic deployments; the core substitution feature itself has been available since the first SQLcl Projects release (24.3 onward) and has many more use cases.
+- Dan McGhan's excellent post on `stage.substituteSchemas` explains how SQLcl 26.1 leverages this mechanism for schema-agnostic deployments; the core substitution feature itself has been available since the first SQLcl Project release (24.3 onward) and has many more use cases.
 - Substitution is the cleanest way to make any changeset environment-aware — inject server names, API endpoints, schema names, or any environment-specific value without touching the changeset files.
 - If a variable is missing at deploy time, Liquibase silently writes the literal placeholder (e.g. `${AMS_SERVER_FQDN}`) into the database; a Liquibase precondition can catch this before it causes silent data corruption.
 - This article walks through the feature end-to-end: a minimal test project that confirms the resolution order, followed by two real-world patterns — a pre-deployment variable check and an environment-specific changeset with graceful skip.

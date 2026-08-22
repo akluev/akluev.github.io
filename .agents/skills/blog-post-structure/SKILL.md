@@ -34,12 +34,16 @@ Markdown heading: `## Conclusion`
 
 Markdown heading: `## Sources`
 
+## Product Names
+
+- The Oracle tool is called **SQLcl Project** (singular). Never write "SQLcl Projects" — this is a common mistake. The product name is singular even when discussing the feature in general.
+
 ## Tags
 
 Every post must have a `tags:` list in its front matter. The `jekyll-feed` plugin outputs these as `<category term="..." />` elements in the Atom feed, which is how aggregators (e.g. Planet APEX, Oracle community feeds) find articles by topic.
 
-- Tags are lowercase and hyphenated (e.g. `oracle-apex`, `sqlcl-projects`).
-- Common tags on this site: `oracle-apex`, `apexlang`, `sqlcl`, `sqlcl-projects`, `liquibase`, `oracle-database`, `git`.
+- Tags are lowercase and hyphenated (e.g. `oracle-apex`, `sqlcl-project`).
+- Common tags on this site: `oracle-apex`, `apexlang`, `sqlcl`, `sqlcl-project`, `liquibase`, `oracle-database`, `git`.
 - When starting a new post, determine the tags automatically from the topic and confirm with the user before proceeding. If the topic is unclear, ask the user.
 - Aim for 3–5 tags per post. More than 6 is noise.
 
