@@ -49,6 +49,7 @@ This article is for:
   - [Database object and PL/SQL changes are normally mechanical](#database-object-and-plsql-changes-are-normally-mechanical)
   - [APEX application changes require a deliberate merge](#apex-application-changes-require-a-deliberate-merge)
 - [Why production is upgraded before development](#why-production-is-upgraded-before-development)
+- [Acknowledgements](#acknowledgements)
 - [Conclusion](#conclusion)
 - [Sources](#sources)
 
@@ -440,6 +441,10 @@ Based on this upgrade, a practical timeline looks like this:
 
 The first three stages can be deliberately long. The transition between stages 4 and 5 should be deliberately short. During that gap, the already-tested APEX 26.1 clone provides a trusted temporary development environment for production bug fixes and other emergency deployments. Limit work during this transition to fixes and emergencies; normal feature development should wait until DEV and TEST have joined PROD on the same APEX and SQLcl Project generation.
 
+## Acknowledgements
+
+Thank you to my colleagues <a href="https://www.linkedin.com/in/fekratelwehedi/" target="_blank" rel="noopener noreferrer">Fekrad El-Wendi</a> and <a href="https://www.linkedin.com/in/plamen-mushkov/" target="_blank" rel="noopener noreferrer">Plamen Mushkov</a>. Fekrad did the excellent infrastructure work that made the clone and supporting upgrade environments possible. Plamen shared the APEX side of the upgrade work with me and helped us work through its application-level challenges.
+
 ## Conclusion
 
 The defining challenge of this upgrade was not installing APEX 26.1 or changing a SQLcl version number. It was preserving a valid production-delivery path while building and proving its replacement. The one-way movement of APEX application exports made that an architecture problem before it became a command-line problem.
@@ -467,3 +472,5 @@ This article has intentionally stayed at the architectural and lessons-learned l
 - <a href="https://alexonapex.com/blog/2026/08/12/native-boolean-columns-oracle-apex-apexlang/" target="_blank" rel="noopener noreferrer">Native Boolean Columns in Oracle APEX 26.1 and APEXlang</a>
 - <a href="https://alexonapex.com/blog/2026/07/24/merging-apex-working-copies-with-apexlang/" target="_blank" rel="noopener noreferrer">Merging APEX Working Copies with APEXlang</a>
 - <a href="https://alexonapex.com/blog/2026/08/22/sqlcl-version-switching-by-directory/" target="_blank" rel="noopener noreferrer">SQLcl Version Switching by Directory</a>
+- <a href="https://www.linkedin.com/in/fekratelwehedi/" target="_blank" rel="noopener noreferrer">Fekrad El-Wendi on LinkedIn</a>
+- <a href="https://www.linkedin.com/in/plamen-mushkov/" target="_blank" rel="noopener noreferrer">Plamen Mushkov on LinkedIn</a>
