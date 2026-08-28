@@ -348,6 +348,41 @@ p { margin: 0 0 1.25rem; }
 
 .post-content .highlighter-rouge { position: relative; }
 
+.post-content blockquote {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-left: 0.3rem solid var(--accent);
+  border-radius: 0.35rem;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.post-content blockquote > :last-child { margin-bottom: 0; }
+
+.post-content table {
+  width: 100%;
+  margin: 1.5rem 0 2rem;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-content td {
+  border-bottom: 1px solid var(--line);
+}
+
+.post-content th {
+  font-weight: 700;
+  border-bottom: 3px solid var(--line);
+}
+
 .post-content img {
   display: block;
   max-width: 100%;
