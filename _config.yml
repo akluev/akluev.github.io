@@ -14,6 +14,8 @@ feed:
 author:
   name: Alexander Kluev
 
+google_analytics: G-LY6NTGMZT7
+
 permalink: /blog/:year/:month/:day/:title/
 
 defaults:
