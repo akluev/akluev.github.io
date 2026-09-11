@@ -47,6 +47,13 @@ Every post must have a `tags:` list in its front matter. The `jekyll-feed` plugi
 - When starting a new post, determine the tags automatically from the topic and confirm with the user before proceeding. If the topic is unclear, ask the user.
 - Aim for 3–5 tags per post. More than 6 is noise.
 
+## Hero Image and Image Directory
+
+- At the beginning of every new post, explicitly offer the user the option of using a fresh photo of Mister or Frisbee as the hero image. Treat this like the TL;DR check: do not silently omit the offer. If the user does not want a cat photo, ask them to explicitly decline it.
+- Store every image used by a post in one flat, post-specific directory: `assets/images/YYYY-MM-DD/`, using the date from the post filename. Do not create separate `YYYY/MM/DD` directories.
+- Reference those images from the post as `/assets/images/YYYY-MM-DD/filename.ext`.
+- Use descriptive, lowercase, hyphenated filenames and meaningful alt text. Do not guess which cat appears in a photo when their identity has not been provided.
+
 ## Post Skeleton
 
 ```markdown
@@ -58,6 +65,8 @@ tags:
   - tag-one
   - tag-two
 ---
+
+![Descriptive hero-image alt text](/assets/images/YYYY-MM-DD/hero-image.jpg)
 
 Opening paragraph (context / hook — one or two sentences before TL;DR).
 

@@ -7,6 +7,9 @@
   --line: #dfe1dc;
   --accent: #276749;
   --accent-strong: #174b34;
+  --callout-issue-bg: #fff6ed;
+  --callout-issue-border: #c2410c;
+  --callout-question-bg: #edf7f1;
   --content: 720px;
 }
 
@@ -360,6 +363,39 @@ p { margin: 0 0 1.25rem; }
 
 .post-content blockquote > :last-child { margin-bottom: 0; }
 
+.post-content blockquote.callout {
+  padding: 1.15rem 1.3rem;
+  box-shadow: 0 0.35rem 1rem rgb(32 35 31 / 0.06);
+}
+
+.post-content blockquote.callout > p:first-child > strong:first-child {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.post-content blockquote.callout-issue {
+  border-left-color: var(--callout-issue-border);
+  background: var(--callout-issue-bg);
+}
+
+.post-content blockquote.callout-issue > p:first-child > strong:first-child {
+  color: var(--callout-issue-border);
+}
+
+.post-content blockquote.callout-question {
+  border-left-color: var(--accent);
+  background: var(--callout-question-bg);
+}
+
+.post-content blockquote.callout-question > p:first-child > strong:first-child {
+  color: var(--accent-strong);
+}
+
+.post-content blockquote.callout-question ul { margin-bottom: 0; }
+
 .post-content table {
   width: 100%;
   margin: 1.5rem 0 2rem;
@@ -451,5 +487,8 @@ p { margin: 0 0 1.25rem; }
     --line: #343a33;
     --accent: #78c99b;
     --accent-strong: #a4ddb9;
+    --callout-issue-bg: #2b211a;
+    --callout-issue-border: #fb923c;
+    --callout-question-bg: #1b2921;
   }
 }
