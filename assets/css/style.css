@@ -396,6 +396,12 @@ p { margin: 0 0 1.25rem; }
 
 .post-content blockquote.callout-question ul { margin-bottom: 0; }
 
+.post-content .timing-formula {
+  display: block;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
 .post-content table {
   width: 100%;
   margin: 1.5rem 0 2rem;

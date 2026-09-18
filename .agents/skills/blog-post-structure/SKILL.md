@@ -11,8 +11,9 @@ Every blog post on this site must include the following three sections. Their pr
 
 ### 1. TL;DR (first section, immediately after the opening paragraph)
 
-- One to four concise bullet points that summarise the entire article.
+- Use a short, connected paragraph or up to four concise bullet points to summarise the entire article. Choose the form that reads most naturally for the story.
 - A reader who only reads the TL;DR should understand the key takeaway and know whether the full article is relevant to them.
+- Write for a reader who may spend only about 30 seconds on the post: lead with the finding and practical choice, then give the most useful reason or qualification.
 - Do not restate the title — add value.
 
 Markdown heading: `## TL;DR`
@@ -21,6 +22,7 @@ Markdown heading: `## TL;DR`
 
 - Two to five short paragraphs that wrap up the article.
 - Restate why the topic matters, what the reader should take away, and any actionable next step.
+- Make the practical takeaway clear enough for a reader who skips from the TL;DR to the Conclusion.
 - Avoid introducing new information not covered in the body.
 
 Markdown heading: `## Conclusion`
@@ -54,6 +56,21 @@ Every post must have a `tags:` list in its front matter. The `jekyll-feed` plugi
 - Reference those images from the post as `/assets/images/YYYY-MM-DD/filename.ext`.
 - Use descriptive, lowercase, hyphenated filenames and meaningful alt text. Do not guess which cat appears in a photo when their identity has not been provided.
 
+## Callouts
+
+The existing callout styles are in `assets/css/style.css`. Use a Markdown blockquote followed immediately by a Kramdown attribute line:
+
+```markdown
+> **Callout label**
+>
+> Callout text.
+{: .callout .callout-question }
+```
+
+- `.callout .callout-question` has a green background and border. Use it for questions, helpful notes, or positive highlights.
+- `.callout .callout-issue` has an orange background and border. Use it for problems, warnings, or unresolved points.
+- The first bold phrase becomes the small uppercase label. The base `.callout` class adds padding and a subtle shadow. Choose the colour by meaning; avoid adding a new CSS style for an ordinary callout.
+
 ## Post Skeleton
 
 ```markdown
@@ -72,9 +89,7 @@ Opening paragraph (context / hook — one or two sentences before TL;DR).
 
 ## TL;DR
 
-- Key point 1
-- Key point 2
-- Key point 3
+Brief connected summary, or concise bullets when a list reads better.
 
 <!-- body sections -->
 
@@ -91,10 +106,14 @@ Wrap-up paragraphs.
 ## Writing Style Notes
 
 - Use British/neutral English; avoid marketing superlatives.
+- Write in Alex's relaxed, friendly voice. Prefer plain words and short explanations to dense technical phrasing. An occasional personal aside or joke is welcome when it fits the post.
+- Keep a natural thread from one finding to the next. Explain what prompted the test, what it showed, and why that led to the next test; avoid turning connected reasoning into clipped statements or a list of slogans.
+- Keep measured results precise even in a conversational passage. Distinguish what a test showed from an explanation or a suggestion for readers to try.
+- When a detailed technical write-up exists elsewhere, tell the story and highlight the useful evidence here; link to the full write-up for scripts, logs, and deep methodology instead of reproducing it all.
 - Code samples use fenced code blocks with a language tag (`sql`, `shell`, `json`, etc.).
 - External links use `<a href="..." target="_blank" rel="noopener noreferrer">...</a>` (not bare Markdown links).
 - Each section heading is `##`; subsections are `###`.
-- **Commands and their output**: when showing a command a reader should run, first show the command(s) with a brief lead-in (e.g. "From inside SQLcl, run:"), then follow with a second block introduced by "Output should look something like this:" containing the actual output. This lets readers verify what they see matches what is expected.
+- **Commands and their output**: every output example must show the exact command that produced it in the same example, preferably as the first line of a terminal or SQLcl transcript. Never show orphan output. If lines are omitted, mark the omission and say so in the lead-in. This lets readers verify what they see against the command they ran.
 - Do not start writing the full article body until the TL;DR and Sources skeleton have been approved by the user.
 
 ## LinkedIn Post Tags
