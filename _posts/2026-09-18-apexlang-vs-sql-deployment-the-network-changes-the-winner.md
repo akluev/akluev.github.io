@@ -16,7 +16,7 @@ tags:
 > In my last post, I introduced a simple rule: every post gets a cat photo, and a particularly important post gets two cats. Both are here today, so you know how I feel about this one.
 {: .callout .callout-question }
 
-Why? SQLcl can import an APEX application from APEXlang files or by running its conventional SQL export file. I call those the APEXlang import and the SQL import throughout this post. With SQLcl Project 26.2.2, that choice is available in a Project deployment too. I wanted to know what makes one route faster than the other, so I timed the direct SQLcl import commands and wrote a <a href="https://github.com/akluev/realSQLclProject/blob/main/docs/APEXlang/17.-APEXlang-vs-SQL-Deployment-Performance.md" target="_blank" rel="noopener noreferrer">rather detailed technical article</a> about the tests.
+That second cat points to a question I think matters: **When deploying an APEX application, should we import APEXlang files or run the conventional SQL export?** SQLcl Project 26.2.2 now gives us both options in a Project deployment. I call them the APEXlang import and the SQL import throughout this post. To find out what makes one faster, I timed the direct SQLcl import commands and wrote a <a href="https://github.com/akluev/realSQLclProject/blob/main/docs/APEXlang/17.-APEXlang-vs-SQL-Deployment-Performance.md" target="_blank" rel="noopener noreferrer">rather detailed technical article</a> about the tests.
 
 I also installed Google Analytics on this site. Sorry if you did not want to be tracked, but it was for your own good, okay? It tells me the average engagement time on this blog is **29 seconds**. If that sounds like you, here is the short version.
 
