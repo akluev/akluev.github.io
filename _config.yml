@@ -27,5 +27,7 @@ defaults:
 
 exclude:
   - README.md
+  - AGENTS.md
+  - CLAUDE.md
   - source-assets
   - tmp

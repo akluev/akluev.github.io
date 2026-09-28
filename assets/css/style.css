@@ -294,14 +294,64 @@ p { margin: 0 0 1.25rem; }
   line-height: 1.45;
 }
 
+.patent-highlight { margin-top: 2rem; }
+
+.patent-highlight,
 .about-archive {
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
+  padding: 1.15rem 1.3rem;
   border: 1px solid var(--line);
-  border-radius: 0.4rem;
-  background: var(--surface);
+  border-left: 0.3rem solid var(--accent);
+  border-radius: 0.35rem;
+  background: var(--callout-question-bg);
+  box-shadow: 0 0.35rem 1rem rgb(32 35 31 / 0.06);
 }
+
+.patent-highlight > p { max-width: 42rem; }
+
+.patent-highlight .patent-label {
+  margin: 0 0 0.35rem;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.patent-gallery {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.patent-gallery figure { margin: 0; }
+
+.patent-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  background: #fff;
+}
+
+.patent-gallery figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.patent-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
 
 .about-links ul {
   display: flex;
@@ -475,6 +525,86 @@ p { margin: 0 0 1.25rem; }
 
 .site-footer p { margin: 0; }
 
+.zoomable { cursor: zoom-in; }
+
+.zoomable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+html.lightbox-open { overflow: hidden; }
+
+.lightbox {
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 1rem;
+  border: 0;
+  background: transparent;
+  cursor: zoom-out;
+}
+
+.lightbox::backdrop { background: rgb(0 0 0 / 0.88); }
+
+.lightbox figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  margin: 0;
+}
+
+.lightbox img {
+  flex: 0 1 auto;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0.3rem;
+  background: var(--bg);
+}
+
+.lightbox img.is-vector {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lightbox figcaption {
+  flex: none;
+  max-width: 42rem;
+  color: #e6e8e3;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.5);
+  color: #fff;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible { background: rgb(0 0 0 / 0.8); border-color: #fff; }
+
 @media (max-width: 520px) {
   html { font-size: 16px; }
   .header-inner { align-items: flex-start; flex-direction: column; padding: 1rem 0; gap: 0.5rem; }
@@ -482,6 +612,7 @@ p { margin: 0 0 1.25rem; }
   .about-intro { grid-template-columns: 1fr; }
   .about-portrait { width: min(70%, 15rem); grid-row: 1; }
   .speaking-gallery { grid-template-columns: 1fr; }
+  .patent-gallery { grid-template-columns: 1fr; }
 }
 
 @media (prefers-color-scheme: dark) {

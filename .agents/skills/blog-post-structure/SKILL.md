@@ -55,6 +55,11 @@ Every post must have a `tags:` list in its front matter. The `jekyll-feed` plugi
 - Store every image used by a post in one flat, post-specific directory: `assets/images/YYYY-MM-DD/`, using the date from the post filename. Do not create separate `YYYY/MM/DD` directories.
 - Reference those images from the post as `/assets/images/YYYY-MM-DD/filename.ext`.
 - Use descriptive, lowercase, hyphenated filenames and meaningful alt text. Do not guess which cat appears in a photo when their identity has not been provided.
+- Every new image is zoomable by default: `assets/js/image-lightbox.js` opens content images in a full-screen pop-up when clicked.
+  - Write images as plain Markdown `![alt](/assets/images/YYYY-MM-DD/file.ext)` or `<img>`. An image wrapped in a link keeps the link and does not zoom.
+  - Exception: a very tall or long, narrow image (such as a full process flowchart) needs scrolling and does not fit a pop-up. Wrap it in a link to the image file itself with `target="_blank" rel="noopener noreferrer"` so it opens in its own browser tab.
+  - Use `{: .no-lightbox }` after an image only for a rare decorative image that must not zoom, and tell the user why.
+  - Prefer images with enough real resolution (or SVG) that the enlarged view is worth opening.
 
 ## Callouts
 

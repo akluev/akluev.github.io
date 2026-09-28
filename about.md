@@ -28,7 +28,26 @@ description: About Alexander Kluev, a senior Oracle APEX developer with 30 years
     <h2 id="credentials-heading">A long view of Oracle development</h2>
     <p>I have earned six Oracle certifications across two decades, from Oracle 7.3 Certified Database Administrator in 2000 to Oracle Application Express 18 Developer Certified Professional in 2020. Along the way, they covered database administration, PL/SQL development, Oracle Internet Application Developer 6i, and Oracle Application Server 10g.</p>
 
-    <p>I am also a co-inventor of the U.S. patent application <a href="https://patents.justia.com/patent/20260044487" target="_blank" rel="noopener noreferrer"><cite>Repository-Based State Diffing System and Migration Script Generating System for Databases</cite></a>, work connected to early ideas behind repository-driven Oracle database deployment tooling.</p>
+    <div class="patent-highlight">
+      <p class="patent-label">U.S. Patent 12,737,340 B2 &middot; granted September 15, 2026</p>
+      <p>I am a co-inventor of U.S. Patent 12,737,340, <cite>Repository-Based State Diffing System and Migration Script Generating System for Databases</cite>, together with Dan McGhan and Yaroslav Shamatienko. The system built on this work became one of the cornerstones of what is now known as SQLcl Project.</p>
+
+      <div class="patent-gallery">
+        <figure>
+          <img src="{{ '/assets/images/patent/us-12737340-b2-front-page.jpg' | relative_url }}" alt="Front page of U.S. Patent 12,737,340 B2, listing inventors Daniel McGhan, Yaroslav Shamatienko, and Alexander Kluev" width="1245" height="896" loading="lazy">
+          <figcaption>Front page of U.S. Patent 12,737,340 B2.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/images/patent/us-12737340-b2-figure-1.jpg' | relative_url }}" alt="Patent Figure 1: a state diffing system exporting from a development database into a repository, diffing, and deploying scripts to a target database" width="614" height="593" loading="lazy">
+          <figcaption>Figure 1: the state diffing system.</figcaption>
+        </figure>
+      </div>
+
+      <ul class="patent-links">
+        <li><a href="{{ '/assets/documents/patent/US-12737340-B2.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Read the patent (PDF) &rarr;</a></li>
+        <li><a href="https://patents.justia.com/patent/12737340" target="_blank" rel="noopener noreferrer">Patent grant record</a></li>
+      </ul>
+    </div>
   </section>
 
   <section class="about-section" aria-labelledby="community-heading">
