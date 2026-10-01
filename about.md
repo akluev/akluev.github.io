@@ -6,14 +6,22 @@ description: About Alexander Kluev, a senior Oracle APEX developer with 30 years
 ---
 
 <article class="page about-page">
+  <p class="eyebrow">About</p>
+  <a class="about-ace-banner" href="https://apexadb.oracle.com/ords/ace/profile/akluev">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="{{ '/assets/images/oracle-ace/S+T4_ACEAssociate_rev_rgb.png' | relative_url }}">
+      <img src="{{ '/assets/images/oracle-ace/S+T3_ACEAssociate_rgb.png' | relative_url }}" alt="Oracle ACE Associate - view Alexander Kluev's profile" width="1280" height="512">
+    </picture>
+  </a>
+
   <header class="about-intro">
     <div>
-      <p class="eyebrow">About</p>
       <h1>Hello, I'm Alexander.</h1>
       <p class="lede">I'm a senior Oracle APEX developer with 30 years of experience building, modernizing, and supporting production Oracle systems.</p>
     </div>
     <img class="about-portrait" src="{{ '/assets/images/photo/alex-professional-photo.png' | relative_url }}" alt="Portrait of Alexander Kluev" width="320" height="400">
   </header>
+
 
   <div class="about-copy">
     <p>I began working with Oracle in 1996, after starting my software development career in 1993. My work spans Oracle APEX, SQL, PL/SQL, SQLcl, database design, and deployment automation. Today I work as a Senior APEX Developer at <a href="https://www.talan.com/americas/en" target="_blank" rel="noopener noreferrer">Talan</a>.</p>
@@ -21,6 +29,16 @@ description: About Alexander Kluev, a senior Oracle APEX developer with 30 years
     <p>I was born and raised in Ukraine&mdash;in the previous millennium&mdash;and have lived in Canada since the beginning of this one. I am proudly Ukrainian Canadian, at home in both parts of that identity. <span class="nationality-flags"><img src="{{ '/assets/images/flags/ukraine.svg' | relative_url }}" alt="Flag of Ukraine" width="30" height="20"><img src="{{ '/assets/images/flags/canada.svg' | relative_url }}" alt="Flag of Canada" width="40" height="20"></span></p>
 
     <p>Before joining Talan, I worked on enterprise systems in the public and private sectors, including major applications for the Government of Ontario. I later worked at Oracle on active Oracle Health projects and, toward the end of my time there, as a member of the Oracle APEX development team. That combination of customer implementation and product-development experience continues to shape how I approach software: practical, maintainable, and grounded in how systems behave in production.</p>
+  </div>
+
+  <div class="about-ace">
+    <a class="about-ace-badge" href="https://apexadb.oracle.com/ords/ace/profile/akluev">
+      <img src="{{ '/assets/images/oracle-ace/badge-ace-associate-2026-hx.png' | relative_url }}" alt="Oracle ACE Associate 2026 - view Alexander Kluev's profile" width="512" height="512" loading="lazy">
+    </a>
+    <div>
+      <p>On October 1, 2026, I became an Oracle ACE Associate. I'm proud to join the Oracle ACE community and continue sharing practical experience with Oracle APEX, SQL, PL/SQL, and SQLcl.</p>
+      <p><a href="https://apexadb.oracle.com/ords/ace/profile/akluev">View my Oracle ACE profile &rarr;</a></p>
+    </div>
   </div>
 
   <section class="about-section" aria-labelledby="credentials-heading">

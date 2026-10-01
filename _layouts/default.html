@@ -32,10 +32,17 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="site-title" href="{{ '/' | relative_url }}">
-          <span>Alex on APEX</span>
-          <img class="site-title-flag" src="{{ '/assets/images/flags/ukraine.svg' | relative_url }}" alt="Ukrainian flag" width="24" height="12">
-        </a>
+        <div class="site-brand">
+          <a class="site-ace" href="https://apexadb.oracle.com/ords/ace/profile/akluev" title="Alexander Kluev - Oracle ACE Associate" target="_blank" rel="noopener noreferrer">
+            <img src="{{ '/assets/images/oracle-ace/Spade3_ACEAssociate_rgb.png' | relative_url }}" alt="Alexander Kluev - Oracle ACE Associate" width="1200" height="1200">
+          </a>
+          <div class="site-title">
+            <a href="{{ '/' | relative_url }}">Alex on APEX</a>
+            <a href="https://standwithukraine.com.ua/" title="I #StandWithUkraine." target="_blank" rel="noopener noreferrer">
+              <img class="site-title-flag" src="{{ '/assets/images/flags/ukraine.svg' | relative_url }}" alt="Ukrainian flag" width="24" height="12">
+            </a>
+          </div>
+        </div>
         <nav aria-label="Primary navigation">
           <a{% if page.url == '/' %} class="active" aria-current="page"{% endif %} href="{{ '/' | relative_url }}">Home</a>
           <a{% if page.url == '/about/' %} class="active" aria-current="page"{% endif %} href="{{ '/about/' | relative_url }}">About</a>

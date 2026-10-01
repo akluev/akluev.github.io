@@ -4,7 +4,7 @@ description: Alex on APEX is Alexander Kluev's technical blog about Oracle APEX,
 ---
 
 <section class="hero">
-  <p class="eyebrow">Oracle &amp; APEX developer</p>
+  <p class="eyebrow">Oracle &amp; APEX developer | <a href="https://apexadb.oracle.com/ords/ace/profile/akluev">Oracle ACE <span aria-hidden="true">♠</span></a></p>
   <picture>
     <source srcset="{{ '/assets/images/home/alex-on-apex-logo.webp' | relative_url }}" type="image/webp">
     <img class="brand-logo brand-logo-home" src="{{ '/assets/images/home/alex-on-apex-logo.png' | relative_url }}" alt="Alex on APEX" width="1200" height="599">
