@@ -10,6 +10,8 @@
   --callout-issue-bg: #fff6ed;
   --callout-issue-border: #c2410c;
   --callout-question-bg: #edf7f1;
+  --callout-prompt-bg: #eef3fb;
+  --callout-prompt-border: #2b5fab;
   --content: 720px;
 }
 
@@ -499,6 +501,16 @@ p { margin: 0 0 1.25rem; }
 
 .post-content blockquote.callout-question ul { margin-bottom: 0; }
 
+/* A prompt given to an AI agent, shown in place of a command. */
+.post-content blockquote.callout-prompt {
+  border-left-color: var(--callout-prompt-border);
+  background: var(--callout-prompt-bg);
+}
+
+.post-content blockquote.callout-prompt > p:first-child > strong:first-child {
+  color: var(--callout-prompt-border);
+}
+
 .post-content .timing-formula {
   display: block;
   font-size: 1.15rem;
@@ -682,5 +694,7 @@ html.lightbox-open { overflow: hidden; }
     --callout-issue-bg: #2b211a;
     --callout-issue-border: #fb923c;
     --callout-question-bg: #1b2921;
+    --callout-prompt-bg: #1a2230;
+    --callout-prompt-border: #7aa7e8;
   }
 }

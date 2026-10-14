@@ -117,6 +117,7 @@ Wrap-up paragraphs.
 - When a detailed technical write-up exists elsewhere, tell the story and highlight the useful evidence here; link to the full write-up for scripts, logs, and deep methodology instead of reproducing it all.
 - Code samples use fenced code blocks with a language tag (`sql`, `shell`, `json`, etc.).
 - External links use `<a href="..." target="_blank" rel="noopener noreferrer">...</a>` (not bare Markdown links).
+- **Links to this blog** always use the custom domain `https://alexonapex.com/...` (for example `https://alexonapex.com/blog/2026/10/14/post-slug/`), never `akluev.github.io`. This applies in posts, LinkedIn text, and URLs handed to other people.
 - Each section heading is `##`; subsections are `###`.
 - **Commands and their output**: every output example must show the exact command that produced it in the same example, preferably as the first line of a terminal or SQLcl transcript. Never show orphan output. If lines are omitted, mark the omission and say so in the lead-in. This lets readers verify what they see against the command they ran.
 - Do not start writing the full article body until the TL;DR and Sources skeleton have been approved by the user.
