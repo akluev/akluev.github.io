@@ -18,7 +18,7 @@ tags:
 > Today is <a href="https://oracle-base.com/blog/2026/09/23/joel-kallman-day-2026-announcement/" target="_blank" rel="noopener noreferrer">Joel Kallman Day</a>, when the Oracle community publishes together and remembers Joel. My contribution is about one of the most exciting new features in Oracle AI Database 26ai: **SQL assertions**. Making them work with SQLcl Project was just as exciting for me, because I am a big fan of that tool.
 {: .callout .callout-question }
 
-My colleague Plamen Mushkov has just published <!-- TODO: replace with Plamen's assertions article URL --><a href="https://blog.apexapplab.dev/oracle-apex-26-2-knowledge-base" target="_blank" rel="noopener noreferrer">Oracle 26ai Assertions</a>, a real use case where a key must exist in one of two parent tables, which no foreign key can enforce. Read it first; I will not repeat it 🙂. Instead, I want to answer the question that came straight after for me: how do I keep assertions in a SQLcl Project repository when SQLcl Project does not support them?
+My colleague Plamen Mushkov has just published <a href="https://blog.apexapplab.dev/oracle-26ai-assertions" target="_blank" rel="noopener noreferrer">Oracle 26ai Assertions</a>, a real use case where a key must exist in one of two parent tables, which no foreign key can enforce. Read it first; I will not repeat it 🙂. Instead, I want to answer the question that came straight after for me: how do I keep assertions in a SQLcl Project repository when SQLcl Project does not support them?
 
 ## TL;DR
 
@@ -49,7 +49,7 @@ My colleague Plamen Mushkov has just published <!-- TODO: replace with Plamen's 
 
 ## Assertions in two minutes
 
-Plamen's <!-- TODO: replace with Plamen's assertions article URL --><a href="https://blog.apexapplab.dev/oracle-apex-26-2-knowledge-base" target="_blank" rel="noopener noreferrer">article</a> explains why assertions matter and how to write one, so here is only what you need for the rest of this post. An assertion is a schema object with a `CHECK` condition that can look at any number of rows and tables. The database re-checks it whenever one of those tables changes and rejects the change with `ORA-08601` if the condition becomes false.
+Plamen's <a href="https://blog.apexapplab.dev/oracle-26ai-assertions" target="_blank" rel="noopener noreferrer">article</a> explains why assertions matter and how to write one, so here is only what you need for the rest of this post. An assertion is a schema object with a `CHECK` condition that can look at any number of rows and tables. The database re-checks it whenever one of those tables changes and rejects the change with `ORA-08601` if the condition becomes false.
 
 I will use one example throughout the article: the good old `EMP` table, where the company must have exactly one president. This is how that assertion looks:
 
@@ -610,7 +610,7 @@ Assertions were a great feature to start with, and well worth adopting on their 
 
 ## Sources
 
-- <!-- TODO: replace with Plamen's assertions article URL --><a href="https://blog.apexapplab.dev/oracle-apex-26-2-knowledge-base" target="_blank" rel="noopener noreferrer">Plamen Mushkov: Oracle 26ai Assertions</a>
+- <a href="https://blog.apexapplab.dev/oracle-26ai-assertions" target="_blank" rel="noopener noreferrer">Plamen Mushkov: Oracle 26ai Assertions</a>
 - <a href="https://oracle-base.com/blog/2026/09/23/joel-kallman-day-2026-announcement/" target="_blank" rel="noopener noreferrer">Joel Kallman Day 2026 announcement</a>
 - <a href="https://github.com/akluev/realSQLclProject/tree/main/.github/skills/sql-assertions" target="_blank" rel="noopener noreferrer">sql-assertions skill on GitHub</a>
 - <a href="https://github.com/akluev/realSQLclProject/tree/main/.github/skills/sqlcl-project" target="_blank" rel="noopener noreferrer">sqlcl-project skill on GitHub</a>
