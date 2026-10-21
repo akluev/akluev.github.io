@@ -114,7 +114,7 @@ _ak_blog_root() {
 
     if [[ ! -f "$root/_config.yml" ]] ||
        [[ ! -f "$root/Gemfile" ]] ||
-       ! grep -Eq '^url:[[:space:]]*https://akluev\.github\.io[[:space:]]*$' "$root/_config.yml"; then
+       ! grep -Eq '^url:[[:space:]]*https://alexonapex\.com[[:space:]]*$' "$root/_config.yml"; then
         echo "Not inside the akluev.github.io repository." >&2
         return 1
     fi
